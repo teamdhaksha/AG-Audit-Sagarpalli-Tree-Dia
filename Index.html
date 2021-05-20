@@ -32,9 +32,9 @@
         <script src="js/labels.js"></script>
         <script src="data/Sagarpalli_1.js"></script>
         <script src="data/Canopy_2.js"></script>
-        <script src="data/Teak1196_3.js"></script>
-        <script src="data/Bamboo19_4.js"></script>
-        <script src="data/Khair3_5.js"></script>
+        <script src="data/Bamboo19_3.js"></script>
+        <script src="data/Khair3_4.js"></script>
+        <script src="data/Teak1196_5.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -43,7 +43,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[20.556227313805667,83.40142060791483],[20.56957828221149,83.42872040737542]]);
+        }).fitBounds([[20.554307296821033,83.39501706236712],[20.572952421808406,83.43169422312565]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -78,24 +78,19 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Area</th>\
-                        <td>' + (feature.properties['Area'] !== null ? autolinker.link(feature.properties['Area'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Area'] !== null ? autolinker.link(feature.properties['Area'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Type</th>\
-                        <td>' + (feature.properties['Type'] !== null ? autolinker.link(feature.properties['Type'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Type'] !== null ? autolinker.link(feature.properties['Type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">District</th>\
-                        <td>' + (feature.properties['District'] !== null ? autolinker.link(feature.properties['District'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['District'] !== null ? autolinker.link(feature.properties['District'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">No_of_Tree</th>\
-                        <td>' + (feature.properties['No_of_Tree'] !== null ? autolinker.link(feature.properties['No_of_Tree'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['No_of_Tree'] !== null ? autolinker.link(feature.properties['No_of_Tree'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -105,13 +100,13 @@
             return {
                 pane: 'pane_Sagarpalli_1',
                 opacity: 1,
-                color: 'rgba(255,38,63,1.0)',
+                color: 'rgba(255,72,72,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 3.0, 
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_Sagarpalli_1');
@@ -119,7 +114,7 @@
         map.getPane('pane_Sagarpalli_1').style['mix-blend-mode'] = 'normal';
         var layer_Sagarpalli_1 = new L.geoJson(json_Sagarpalli_1, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_Sagarpalli_1',
             layerName: 'layer_Sagarpalli_1',
             pane: 'pane_Sagarpalli_1',
@@ -158,7 +153,7 @@
             return {
                 pane: 'pane_Canopy_2',
                 opacity: 1,
-                color: 'rgba(76,40,255,1.0)',
+                color: 'rgba(106,89,255,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
@@ -181,73 +176,7 @@
         });
         bounds_group.addLayer(layer_Canopy_2);
         map.addLayer(layer_Canopy_2);
-        function pop_Teak1196_3(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Height_F</th>\
-                        <td>' + (feature.properties['Height_F'] !== null ? autolinker.link(feature.properties['Height_F'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Tree_Type</th>\
-                        <td>' + (feature.properties['Tree_Type'] !== null ? autolinker.link(feature.properties['Tree_Type'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Tree_Growt</th>\
-                        <td>' + (feature.properties['Tree_Growt'] !== null ? autolinker.link(feature.properties['Tree_Growt'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_Teak1196_3_0() {
-            return {
-                pane: 'pane_Teak1196_3',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(80,223,228,1.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Teak1196_3');
-        map.getPane('pane_Teak1196_3').style.zIndex = 403;
-        map.getPane('pane_Teak1196_3').style['mix-blend-mode'] = 'normal';
-        var layer_Teak1196_3 = new L.geoJson(json_Teak1196_3, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Teak1196_3',
-            layerName: 'layer_Teak1196_3',
-            pane: 'pane_Teak1196_3',
-            onEachFeature: pop_Teak1196_3,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.circleMarker(latlng, style_Teak1196_3_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Teak1196_3);
-        map.addLayer(layer_Teak1196_3);
-        function pop_Bamboo19_4(feature, layer) {
+        function pop_Bamboo19_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -277,9 +206,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Bamboo19_4_0() {
+        function style_Bamboo19_3_0() {
             return {
-                pane: 'pane_Bamboo19_4',
+                pane: 'pane_Bamboo19_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -289,31 +218,31 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(22,27,168,1.0)',
+                fillColor: 'rgba(255,100,248,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_Bamboo19_4');
-        map.getPane('pane_Bamboo19_4').style.zIndex = 404;
-        map.getPane('pane_Bamboo19_4').style['mix-blend-mode'] = 'normal';
-        var layer_Bamboo19_4 = new L.geoJson(json_Bamboo19_4, {
+        map.createPane('pane_Bamboo19_3');
+        map.getPane('pane_Bamboo19_3').style.zIndex = 403;
+        map.getPane('pane_Bamboo19_3').style['mix-blend-mode'] = 'normal';
+        var layer_Bamboo19_3 = new L.geoJson(json_Bamboo19_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Bamboo19_4',
-            layerName: 'layer_Bamboo19_4',
-            pane: 'pane_Bamboo19_4',
-            onEachFeature: pop_Bamboo19_4,
+            dataVar: 'json_Bamboo19_3',
+            layerName: 'layer_Bamboo19_3',
+            pane: 'pane_Bamboo19_3',
+            onEachFeature: pop_Bamboo19_3,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Bamboo19_4_0(feature));
+                return L.circleMarker(latlng, style_Bamboo19_3_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Bamboo19_4);
-        map.addLayer(layer_Bamboo19_4);
-        function pop_Khair3_5(feature, layer) {
+        bounds_group.addLayer(layer_Bamboo19_3);
+        map.addLayer(layer_Bamboo19_3);
+        function pop_Khair3_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -343,9 +272,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Khair3_5_0() {
+        function style_Khair3_4_0() {
             return {
-                pane: 'pane_Khair3_5',
+                pane: 'pane_Khair3_4',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -355,32 +284,98 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(122,255,105,1.0)',
+                fillColor: 'rgba(79,255,108,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_Khair3_5');
-        map.getPane('pane_Khair3_5').style.zIndex = 405;
-        map.getPane('pane_Khair3_5').style['mix-blend-mode'] = 'normal';
-        var layer_Khair3_5 = new L.geoJson(json_Khair3_5, {
+        map.createPane('pane_Khair3_4');
+        map.getPane('pane_Khair3_4').style.zIndex = 404;
+        map.getPane('pane_Khair3_4').style['mix-blend-mode'] = 'normal';
+        var layer_Khair3_4 = new L.geoJson(json_Khair3_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Khair3_5',
-            layerName: 'layer_Khair3_5',
-            pane: 'pane_Khair3_5',
-            onEachFeature: pop_Khair3_5,
+            dataVar: 'json_Khair3_4',
+            layerName: 'layer_Khair3_4',
+            pane: 'pane_Khair3_4',
+            onEachFeature: pop_Khair3_4,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Khair3_5_0(feature));
+                return L.circleMarker(latlng, style_Khair3_4_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Khair3_5);
-        map.addLayer(layer_Khair3_5);
+        bounds_group.addLayer(layer_Khair3_4);
+        map.addLayer(layer_Khair3_4);
+        function pop_Teak1196_5(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Height_F</th>\
+                        <td>' + (feature.properties['Height_F'] !== null ? autolinker.link(feature.properties['Height_F'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tree_Type</th>\
+                        <td>' + (feature.properties['Tree_Type'] !== null ? autolinker.link(feature.properties['Tree_Type'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tree_Growt</th>\
+                        <td>' + (feature.properties['Tree_Growt'] !== null ? autolinker.link(feature.properties['Tree_Growt'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Teak1196_5_0() {
+            return {
+                pane: 'pane_Teak1196_5',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(132,252,248,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Teak1196_5');
+        map.getPane('pane_Teak1196_5').style.zIndex = 405;
+        map.getPane('pane_Teak1196_5').style['mix-blend-mode'] = 'normal';
+        var layer_Teak1196_5 = new L.geoJson(json_Teak1196_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Teak1196_5',
+            layerName: 'layer_Teak1196_5',
+            pane: 'pane_Teak1196_5',
+            onEachFeature: pop_Teak1196_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Teak1196_5_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Teak1196_5);
+        map.addLayer(layer_Teak1196_5);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/Khair3_5.png" /> Khair (3)': layer_Khair3_5,'<img src="legend/Bamboo19_4.png" /> Bamboo (19)': layer_Bamboo19_4,'<img src="legend/Teak1196_3.png" /> Teak (1196)': layer_Teak1196_3,'<img src="legend/Canopy_2.png" /> Canopy': layer_Canopy_2,'<img src="legend/Sagarpalli_1.png" /> Sagarpalli': layer_Sagarpalli_1,"Google": layer_Google_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Teak1196_5.png" /> Teak (1196)': layer_Teak1196_5,'<img src="legend/Khair3_4.png" /> Khair (3)': layer_Khair3_4,'<img src="legend/Bamboo19_3.png" /> Bamboo (19)': layer_Bamboo19_3,'<img src="legend/Canopy_2.png" /> Canopy': layer_Canopy_2,'<img src="legend/Sagarpalli_1.png" /> Sagarpalli': layer_Sagarpalli_1,"Google": layer_Google_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
